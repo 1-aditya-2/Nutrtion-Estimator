@@ -1,0 +1,62 @@
+{
+    "Paneer Butter Masala": [
+      { "ingredient": "Paneer", "quantity": "0.75 cup cubes" },
+      { "ingredient": "Butter", "quantity": "2 teaspoons" },
+      { "ingredient": "Tomato", "quantity": "0.5 cup puree" },
+      { "ingredient": "Onion", "quantity": "0.5 cup chopped" },
+      { "ingredient": "Cream", "quantity": "1 tablespoon" }
+    ],
+    "Chole Masala": [
+      { "ingredient": "Chickpeas", "quantity": "1 cup boiled" },
+      { "ingredient": "Onion", "quantity": "1 cup chopped" },
+      { "ingredient": "Tomato", "quantity": "0.75 cup puree" },
+      { "ingredient": "Ginger", "quantity": "1 teaspoon paste" },
+      { "ingredient": "Oil", "quantity": "2 tablespoons" }
+    ],
+    "Dal Tadka": [
+      { "ingredient": "Toor Dal", "quantity": "1 cup boiled" },
+      { "ingredient": "Onion", "quantity": "0.5 cup chopped" },
+      { "ingredient": "Tomato", "quantity": "0.5 cup chopped" },
+      { "ingredient": "Ghee", "quantity": "1 tablespoon" },
+      { "ingredient": "Garlic", "quantity": "1 teaspoon chopped" }
+    ],
+    "Aloo Gobi": [
+      { "ingredient": "Potato", "quantity": "1 cup diced" },
+      { "ingredient": "Cauliflower", "quantity": "1 cup florets" },
+      { "ingredient": "Onion", "quantity": "0.5 cup chopped" },
+      { "ingredient": "Tomato", "quantity": "0.5 cup chopped" },
+      { "ingredient": "Oil", "quantity": "2 tablespoons" }
+    ],
+    "Palak Paneer": [
+      { "ingredient": "Spinach", "quantity": "2 cups chopped" },
+      { "ingredient": "Paneer", "quantity": "0.5 cup cubes" },
+      { "ingredient": "Onion", "quantity": "0.5 cup chopped" },
+      { "ingredient": "Tomato", "quantity": "0.25 cup puree" },
+      { "ingredient": "Ghee", "quantity": "1 tablespoon" }
+    ],
+    "Chicken Curry": [
+      { "ingredient": "Chicken", "quantity": "1 cup pieces" },
+      { "ingredient": "Onion", "quantity": "1 cup chopped" },
+      { "ingredient": "Tomato", "quantity": "1 cup puree" },
+      { "ingredient": "Oil", "quantity": "2 tablespoons" },
+      { "ingredient": "Yogurt", "quantity": "0.25 cup" }
+    ],
+    "Egg Bhurji": [
+      { "ingredient": "Egg", "quantity": "2 pieces" },
+      { "ingredient": "Onion", "quantity": "0.5 cup chopped" },
+      { "ingredient": "Tomato", "quantity": "0.25 cup chopped" },
+      { "ingredient": "Green Chilli", "quantity": "1 teaspoon chopped" },
+      { "ingredient": "Oil", "quantity": "1 tablespoon" }
+    ],
+    "Mixed Vegetable Curry": [
+      { "ingredient": "Carrot", "quantity": "0.5 cup chopped" },
+      { "ingredient": "Beans", "quantity": "0.5 cup chopped" },
+      { "ingredient": "Peas", "quantity": "0.25 cup" },
+      { "ingredient": "Potato", "quantity": "0.5 cup diced" },
+      { "ingredient": "Tomato", "quantity": "0.5 cup chopped" },
+      { "ingredient": "Onion", "quantity": "0.5 cup chopped" },
+      { "ingredient": "Oil", "quantity": "2 tablespoons" }
+    ]
+  }
+  
+  
