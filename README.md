@@ -28,9 +28,7 @@ vyb-ai-nutrition-estimator/
 │   ├── server.js               # Express API
 │   ├── fetchRecipe.js
 │   ├── matchIngredients.js
-│   ├── convertUnits.js
-│   ├── calculateNutrition.js
-│   ├── classifyDish.js
+│   ├── helpers.js
 ├── recipes/
 │   └── dummyRecipes.json       # Contains mock recipes
 ├── data/
@@ -62,6 +60,71 @@ curl -X POST http://localhost:3000/api/nutrition \
      -H "Content-Type: application/json" \
      -d "{\"dishName\": \"Paneer Butter Masala\"}"
 ```
+
+---
+
+## 🔄 Project Flow Explained
+
+### 1. **User Input**
+- Dish name is passed via:
+  - CLI (`index.js`)
+  - API (`POST /api/nutrition`)
+
+---
+
+### 2. **Fetch Recipe**
+- `fetchRecipe.js`:
+  - Loads `recipes/dummyRecipes.json`
+  - Matches dish name (case-insensitive)
+  - Returns ingredient list with household quantities
+
+---
+
+### 3. **Match Ingredients to Nutrition DB**
+- `matchIngredients.js`:
+  - Loads `Assignment Inputs - Nutrition source.csv`
+  - Fuzzy-matches each ingredient name
+  - Retrieves nutrition per 100g: Calories, Protein, Carbs, Fat, Fiber
+
+---
+
+### 4. **Convert Units to Grams**
+- `convertUnits()`:
+  - Parses quantities like `0.5 cup` or `2 teaspoons`
+  - Uses general & ingredient-specific gram mappings
+  - Converts household quantities to grams
+
+---
+
+### 5. **Calculate Nutrition**
+- `calculateNutrition()`:
+  - Calculates `(grams × nutrition per 100g) / 100` for each ingredient
+  - Sums up total nutrition
+  - Scales result to a standard serving (180g for Wet Sabzi)
+
+---
+
+### 6. **Classify the Dish**
+- `classifyDish()`:
+  - Uses dish name keywords to return type:
+    - Wet Sabzi, Dry Sabzi, Dal, Non-Veg Curry
+
+---
+
+### 7. **Final Output**
+- Returns JSON with:
+  - `estimated_nutrition_per_200ml_katori`
+  - `dish_type`
+  - `ingredients_used`
+
+---
+
+### 8. **Failure Handling**
+- Skips & logs issues like:
+  - Missing ingredient in DB
+  - Invalid unit or quantity
+  - Outlier nutrition values
+- System **never crashes**; fallback logic used
 
 ---
 
