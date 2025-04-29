@@ -42,8 +42,7 @@ vyb-ai-nutrition-estimator/
 ## ⚙️ Installation
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/vyb-ai-nutrition-estimator.git
-cd vyb-ai-nutrition-estimator
+clone the repo
 
 npm install
 ```
@@ -53,7 +52,7 @@ npm install
 ## 🚀 Run the Local API
 
 ```bash
-npm run server
+npm src/server.js
 ```
 
 Then hit the API at:
