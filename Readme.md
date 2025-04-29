@@ -129,14 +129,3 @@ curl -X POST http://localhost:3000/api/nutrition \
 - JSON recipe stubs (can be LLM/API integrated later)
 
 ---
-
-## 📈 Evaluation Readiness
-
-| Metric                      | Handled |
-|----------------------------|---------|
-| Correctness (pipeline)     | ✅       |
-| Code Modularity            | ✅       |
-| Real-world Failure Handling| ✅       |
-| Documentation              | ✅       |
-
----
