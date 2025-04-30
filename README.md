@@ -2,12 +2,8 @@
 
 This is a Node.js-based prototype for estimating the **nutritional values of home-cooked Indian dishes**. It parses the ingredients of a dish, maps them to a nutrition database, converts quantities to grams, and calculates total and per-serving nutrition.
 
-Hosted API link:  https://nutrtion-estimator-production.up.railway.app/api/nutrition/
+Hosted Link:  https://nutrtion-estimator-production.up.railway.app/
 
-## CURL command
-```
->curl -X POST https://nutrtion-estimator-production.up.railway.app/api/nutrition/ -H "Content-Type: application/json" -d "{\"dishName\": \"Paneer Butter Masala\"}"
-```
 
 ---
 
