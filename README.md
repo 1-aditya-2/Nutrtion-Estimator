@@ -4,6 +4,11 @@ This is a Node.js-based prototype for estimating the **nutritional values of hom
 
 Hosted API link:  https://nutrtion-estimator-production.up.railway.app/api/nutrition/
 
+## CURL command
+```
+>curl -X POST https://nutrtion-estimator-production.up.railway.app/api/nutrition/ -H "Content-Type: application/json" -d "{\"dishName\": \"Paneer Butter Masala\"}"
+```
+
 ---
 
 ## 📌 Features
