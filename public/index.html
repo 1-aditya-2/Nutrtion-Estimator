@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Nutrition Estimator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f7f9fc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 600px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+      margin-bottom: 1rem;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+    .result {
+      margin-top: 2rem;
+    }
+
+    .error {
+      color: #d9534f;
+      font-weight: bold;
+    }
+
+    .result table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    .result th, .result td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+    }
+
+    .result th {
+      background-color: #f1f1f1;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin-top: 0.5rem;
+    }
+
+    ul li {
+      margin: 0.4rem 0;
+    }
+
+    .label {
+      font-weight: bold;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Nutrition Estimator</h2>
+
+    <input type="text" id="dishInput" placeholder="Enter dish name e.g. Dal Tadka" />
+    <button onclick="estimate()">Get Nutrition Info</button>
+
+    <div class="result" id="output"></div>
+  </div>
+
+  <script>
+    async function estimate() {
+      const dishName = document.getElementById('dishInput').value.trim();
+      const output = document.getElementById('output');
+      output.innerHTML = '';
+
+      if (!dishName) {
+        output.innerHTML = '<p class="error">Please enter a dish name.</p>';
+        return;
+      }
+
+      try {
+        const response = await fetch('/api/nutrition', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ dishName })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          output.innerHTML = `<p class="error">Error: ${data.error}</p>`;
+        } else {
+          output.innerHTML = `
+            <div class="label">Dish Type: <span>${data.dish_type}</span></div>
+
+            <div class="label">Estimated Nutrition (per 200ml Katori):</div>
+            <table>
+              <tr>
+                <th>Calories</th>
+                <th>Protein (g)</th>
+                <th>Carbs (g)</th>
+                <th>Fat (g)</th>
+                <th>Fiber (g)</th>
+              </tr>
+              <tr>
+                <td>${data.estimated_nutrition_per_200ml_katori.calories}</td>
+                <td>${data.estimated_nutrition_per_200ml_katori.protein}</td>
+                <td>${data.estimated_nutrition_per_200ml_katori.carbs}</td>
+                <td>${data.estimated_nutrition_per_200ml_katori.fat}</td>
+                <td>${data.estimated_nutrition_per_200ml_katori.fiber}</td>
+              </tr>
+            </table>
+
+            <div class="label">🧾 Ingredients Used:</div>
+            <ul>
+              ${data.ingredients_used.map(i => `<li><strong>${i.ingredient}</strong>: ${i.quantity}</li>`).join('')}
+            </ul>
+          `;
+        }
+
+      } catch (error) {
+        output.innerHTML = `<p class="error">Failed to fetch nutrition data: ${error}</p>`;
+      }
+    }
+  </script>
+
+</body>
+</html>

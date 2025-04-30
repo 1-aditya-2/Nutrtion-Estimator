@@ -1,14 +1,17 @@
 const express = require('express');
+const path = require('path');
+
 const fetchRecipe = require('./fetchRecipe');
 const { loadNutritionDatabase, matchIngredient } = require('./matchIngredients');
 const { calculateTotalNutrition, scaleToServing, classifyDish, convertToGrams } = require('./helpers');
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.use(express.json());
+app.use(express.static(path.join(__dirname, '../public')));
 
-// '/api/nutrition' is the api which is triggered for getting the recipe data
+// API route
 app.post('/api/nutrition', async (req, res) => {
   const { dishName } = req.body;
   if (!dishName) {
@@ -54,5 +57,5 @@ app.post('/api/nutrition', async (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`API is up and running at http://localhost:${port}`);
+  console.log(`✅ Server running at http://localhost:${port}`);
 });
