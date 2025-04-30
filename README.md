@@ -4,6 +4,10 @@ This is a Node.js-based prototype for estimating the **nutritional values of hom
 
 Hosted Link:  https://nutrtion-estimator-production.up.railway.app/
 
+![image](https://github.com/user-attachments/assets/dcfe2586-9518-473f-837e-5987aae3571c)
+
+![image](https://github.com/user-attachments/assets/489e9078-5ee2-4238-b34b-63b1962ec6fb)
+
 
 ---
 
