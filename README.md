@@ -1,4 +1,4 @@
-# 🧠 VYB AI Nutrition Estimator
+# 🧠 Nutrition Estimator
 
 This is a Node.js-based prototype for estimating the **nutritional values of home-cooked Indian dishes**. It parses the ingredients of a dish, maps them to a nutrition database, converts quantities to grams, and calculates total and per-serving nutrition.
 
